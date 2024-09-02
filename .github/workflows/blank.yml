@@ -1,0 +1,28 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  JobLinux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Display README.md content
+        run: cat README.md
+
+      - name: Check Kernel version
+        run: uname -r
+
+  JobWindows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Display OS version
+        run: systeminfo
